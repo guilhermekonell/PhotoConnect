@@ -1,0 +1,7 @@
+AULA 14/04
+
+Era previsto início da definição de telas do sistema. 
+
+Realizada configuração e preparação do workspace. Instalação de ferramentas de desenvolvimento (Node.js, docker, recursos para desenvolvimento do node.js, Adobe XD para desenho das telas).
+
+Após configuração do workspace, foi iniciado a etapa de projeção das telas utilizando o software instalado (Adobe XD).
