@@ -128,6 +128,14 @@ class UserController {
       zip_code,
     });
   }
+
+  async delete(req, res) {
+    const user = await User.findByPk(req.userId);
+
+    await user.destroy();
+
+    return res.json();
+  }
 }
 
 export default new UserController();
