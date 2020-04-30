@@ -7,6 +7,10 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
+      event_type: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       value_hour: {
         type: Sequelize.DOUBLE,
         allowNull: true,
@@ -14,7 +18,6 @@ module.exports = {
       description: {
         type: Sequelize.STRING,
         allowNull: true,
-        unique: true,
       },
       created_at: {
         type: Sequelize.DATE,
