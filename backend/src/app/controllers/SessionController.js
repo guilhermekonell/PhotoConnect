@@ -51,6 +51,7 @@ class SessionController {
       city,
       neighborhood,
       zip_code,
+      provider,
     } = user;
 
     return res.json({
@@ -68,6 +69,7 @@ class SessionController {
         city,
         neighborhood,
         zip_code,
+        provider,
       },
       token: jwt.sign({ id }, authConfig.secret, {
         expiresIn: authConfig.expiresIn,

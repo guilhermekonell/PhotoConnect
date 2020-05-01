@@ -18,6 +18,7 @@ class User extends Model {
         zip_code: Sequelize.STRING,
         password: Sequelize.VIRTUAL,
         password_hash: Sequelize.STRING,
+        provider: Sequelize.BOOLEAN,
       },
       {
         sequelize,
