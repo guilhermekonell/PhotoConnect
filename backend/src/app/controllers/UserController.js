@@ -30,6 +30,7 @@ class UserController {
     const {
       id,
       name,
+      avatar_id,
       email,
       phone_number,
       street,
@@ -39,11 +40,13 @@ class UserController {
       city,
       neighborhood,
       zip_code,
+      provider,
     } = await User.create(req.body);
 
     return res.json({
       id,
       name,
+      avatar_id,
       email,
       phone_number,
       street,
@@ -53,12 +56,14 @@ class UserController {
       city,
       neighborhood,
       zip_code,
+      provider,
     });
   }
 
   async update(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string(),
+      avatar_id: Yup.number(),
       email: Yup.string().email(),
       phone_number: Yup.number(),
       street: Yup.string(),
@@ -111,13 +116,14 @@ class UserController {
       city,
       neighborhood,
       zip_code,
+      provider,
     } = await user.update(req.body);
 
     return res.json({
       id,
       name,
-      email,
       avatar_id,
+      email,
       phone_number,
       street,
       street_number,
@@ -126,6 +132,7 @@ class UserController {
       city,
       neighborhood,
       zip_code,
+      provider,
     });
   }
 

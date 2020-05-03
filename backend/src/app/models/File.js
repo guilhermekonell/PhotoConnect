@@ -20,6 +20,10 @@ class File extends Model {
 
     return this;
   }
+
+  static associate(models) {
+    this.hasOne(models.Album, { foreignKey: 'id', as: 'album' });
+  }
 }
 
 export default File;
