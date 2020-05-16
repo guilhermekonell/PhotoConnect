@@ -6,14 +6,6 @@ class UserController {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
       email: Yup.string().required(),
-      phone_number: Yup.number().required(),
-      street: Yup.string().required(),
-      street_number: Yup.number().required(),
-      complement: Yup.string().required(),
-      state: Yup.string().required(),
-      city: Yup.string().required(),
-      neighborhood: Yup.string().required(),
-      zip_code: Yup.string().required(),
       password: Yup.string().required().min(6),
     });
 
@@ -27,36 +19,12 @@ class UserController {
       return res.status(400).json({ error: 'User already exists.' });
     }
 
-    const {
-      id,
-      name,
-      avatar_id,
-      email,
-      phone_number,
-      street,
-      street_number,
-      complement,
-      state,
-      city,
-      neighborhood,
-      zip_code,
-      provider,
-    } = await User.create(req.body);
+    const { id, name, email } = await User.create(req.body);
 
     return res.json({
       id,
       name,
-      avatar_id,
       email,
-      phone_number,
-      street,
-      street_number,
-      complement,
-      state,
-      city,
-      neighborhood,
-      zip_code,
-      provider,
     });
   }
 

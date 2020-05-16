@@ -25,15 +25,15 @@ module.exports = {
       },
       phone_number: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       street: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       street_number: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
       complement: {
         type: Sequelize.STRING,
@@ -41,19 +41,19 @@ module.exports = {
       },
       state: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       city: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       neighborhood: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       zip_code: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       password_hash: {
         type: Sequelize.STRING,
