@@ -1,5 +1,7 @@
 import * as Yup from 'yup';
+
 import User from '../models/User';
+import File from '../models/File';
 
 class UserController {
   async store(req, res) {
@@ -33,7 +35,7 @@ class UserController {
       name: Yup.string(),
       avatar_id: Yup.number(),
       email: Yup.string().email(),
-      phone_number: Yup.number(),
+      phone_number: Yup.string(),
       street: Yup.string(),
       street_number: Yup.number(),
       complement: Yup.string(),
@@ -75,7 +77,6 @@ class UserController {
     const {
       id,
       name,
-      avatar_id,
       phone_number,
       street,
       street_number,
@@ -87,11 +88,21 @@ class UserController {
       provider,
     } = await user.update(req.body);
 
+    const { avatar } = await User.findByPk(req.userId, {
+      include: [
+        {
+          model: File,
+          as: 'avatar',
+          attributes: ['name', 'path', 'url'],
+        },
+      ],
+    });
+
     return res.json({
       id,
       name,
-      avatar_id,
       email,
+      avatar,
       phone_number,
       street,
       street_number,
