@@ -1,24 +1,9 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-export const Wrapper = styled.div`
-  height: 100%;
-  background: linear-gradient(-90deg, #457b9d, #a8dadc);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Content = styled.div`
-  width: 100%;
-  max-width: 315px;
-  text-align: center;
-
-  img {
-    width: 300px;
-    margin-bottom: 30px;
-  }
+export const Container = styled.div`
+  max-width: 600px;
+  margin: 50px auto;
 
   form {
     display: flex;
@@ -34,21 +19,32 @@ export const Content = styled.div`
       margin: 0 0 10px;
 
       &::placeholder {
-        color: rgba(255, 255, 255, 0.7);
+        color: rgba(0, 0, 0, 0.2);
+      }
+
+      &:maskplaceholder {
+        color: rgba(0, 0, 0, 0.2);
       }
     }
 
     span {
-      color: #e63946;
+      color: #1d3557;
       align-self: flex-start;
       margin: -8px 0 10px;
       font-weight: bold;
     }
 
+    hr {
+      border: 0;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
+      margin: 10px 0 20px;
+    }
+
     button {
       margin: 5px 0 0;
       height: 44px;
-      background: #e63946;
+      background: #1d3557;
       font-weight: bold;
       color: #fff;
       border: 0;
@@ -57,19 +53,25 @@ export const Content = styled.div`
       transition: background 0.2s;
 
       &:hover {
-        background: ${darken(0.03, '#e63946')};
+        background: ${darken(0.05, '#1d3557')};
       }
     }
+  }
 
-    a {
-      color: #fff;
-      margin-top: 15px;
-      font-size: 16px;
-      opacity: 0.8;
+  > button {
+    width: 100%;
+    margin: 10px 0 0;
+    height: 44px;
+    background: #e63946;
+    font-weight: bold;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background 0.2s;
 
-      &:hover {
-        opacity: 1;
-      }
+    &:hover {
+      background: ${darken(0.12, '#e63946')};
     }
   }
 `;
