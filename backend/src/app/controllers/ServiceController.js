@@ -7,71 +7,70 @@ import Album from '../models/Album';
 
 class ServiceController {
   async indexUser(req, res) {
-    const include_options = [
-      {
-        model: User,
-        as: 'provider',
-        attributes: [
-          'name',
-          'avatar_id',
-          'email',
-          'phone_number',
-          'street',
-          'street_number',
-          'complement',
-          'state',
-          'city',
-          'neighborhood',
-          'zip_code',
-        ],
-        include: [
-          {
-            model: File,
-            as: 'avatar',
-            attributes: ['name', 'path', 'url'],
-          },
-        ],
-      },
-      {
-        model: User,
-        as: 'client',
-        attributes: [
-          'name',
-          'avatar_id',
-          'email',
-          'phone_number',
-          'street',
-          'street_number',
-          'complement',
-          'state',
-          'city',
-          'neighborhood',
-          'zip_code',
-        ],
-        include: [
-          {
-            model: File,
-            as: 'avatar',
-            attributes: ['name', 'path', 'url'],
-          },
-        ],
-      },
-    ];
-
-    const requested = await Service.findAll({
-      where: { user_id: req.userId, status: 'requested' },
-      include: include_options,
-    });
-
-    const pending = await Service.findAll({
-      where: { user_id: req.userId, status: 'pending' },
-      include: include_options,
-    });
-
-    const completed = await Service.findAll({
-      where: { user_id: req.userId, status: 'completed' },
+    const options = {
+      attributes: [
+        'id',
+        'status',
+        'event_type',
+        'description',
+        'street',
+        'street_number',
+        'state',
+        'city',
+        'neighborhood',
+        'canceled_at',
+        'start_event',
+        'end_event',
+      ],
       include: [
-        ...include_options,
+        {
+          model: User,
+          as: 'provider',
+          attributes: [
+            'name',
+            'avatar_id',
+            'email',
+            'phone_number',
+            'street',
+            'street_number',
+            'complement',
+            'state',
+            'city',
+            'neighborhood',
+            'zip_code',
+          ],
+          include: [
+            {
+              model: File,
+              as: 'avatar',
+              attributes: ['name', 'path', 'url'],
+            },
+          ],
+        },
+        {
+          model: User,
+          as: 'client',
+          attributes: [
+            'name',
+            'avatar_id',
+            'email',
+            'phone_number',
+            'street',
+            'street_number',
+            'complement',
+            'state',
+            'city',
+            'neighborhood',
+            'zip_code',
+          ],
+          include: [
+            {
+              model: File,
+              as: 'avatar',
+              attributes: ['name', 'path', 'url'],
+            },
+          ],
+        },
         {
           model: Album,
           as: 'album',
@@ -84,77 +83,91 @@ class ServiceController {
           ],
         },
       ],
+    };
+
+    const requested = await Service.findAll({
+      where: { user_id: req.userId, status: 'requested' },
+      ...options,
+    });
+
+    const pending = await Service.findAll({
+      where: { user_id: req.userId, status: 'pending' },
+      ...options,
+    });
+
+    const completed = await Service.findAll({
+      where: { user_id: req.userId, status: 'completed' },
+      ...options,
     });
 
     return res.json({ requested, pending, completed });
   }
 
   async indexProvider(req, res) {
-    const include_options = [
-      {
-        model: User,
-        as: 'provider',
-        attributes: [
-          'name',
-          'avatar_id',
-          'email',
-          'phone_number',
-          'street',
-          'street_number',
-          'complement',
-          'state',
-          'city',
-          'neighborhood',
-          'zip_code',
-        ],
-        include: [
-          {
-            model: File,
-            as: 'avatar',
-            attributes: ['name', 'path', 'url'],
-          },
-        ],
-      },
-      {
-        model: User,
-        as: 'client',
-        attributes: [
-          'name',
-          'avatar_id',
-          'email',
-          'phone_number',
-          'street',
-          'street_number',
-          'complement',
-          'state',
-          'city',
-          'neighborhood',
-          'zip_code',
-        ],
-        include: [
-          {
-            model: File,
-            as: 'avatar',
-            attributes: ['name', 'path', 'url'],
-          },
-        ],
-      },
-    ];
-
-    const requested = await Service.findAll({
-      where: { provider_id: req.userId, status: 'requested' },
-      include: include_options,
-    });
-
-    const pending = await Service.findAll({
-      where: { provider_id: req.userId, status: 'pending' },
-      include: include_options,
-    });
-
-    const completed = await Service.findAll({
-      where: { provider_id: req.userId, status: 'completed' },
+    const options = {
+      attributes: [
+        'id',
+        'status',
+        'event_type',
+        'description',
+        'street',
+        'street_number',
+        'state',
+        'city',
+        'neighborhood',
+        'canceled_at',
+        'start_event',
+        'end_event',
+      ],
       include: [
-        ...include_options,
+        {
+          model: User,
+          as: 'provider',
+          attributes: [
+            'name',
+            'avatar_id',
+            'email',
+            'phone_number',
+            'street',
+            'street_number',
+            'complement',
+            'state',
+            'city',
+            'neighborhood',
+            'zip_code',
+          ],
+          include: [
+            {
+              model: File,
+              as: 'avatar',
+              attributes: ['name', 'path', 'url'],
+            },
+          ],
+        },
+        {
+          model: User,
+          as: 'client',
+          attributes: [
+            'name',
+            'avatar_id',
+            'email',
+            'phone_number',
+            'street',
+            'street_number',
+            'complement',
+            'state',
+            'city',
+            'neighborhood',
+            'zip_code',
+          ],
+          include: [
+            {
+              model: File,
+              as: 'avatar',
+              attributes: ['name', 'path', 'url'],
+            },
+          ],
+        },
         {
           model: Album,
           as: 'album',
@@ -167,89 +180,114 @@ class ServiceController {
           ],
         },
       ],
+    };
+
+    const requested = await Service.findAll({
+      where: { provider_id: req.userId, status: 'requested' },
+      ...options,
+    });
+
+    const pending = await Service.findAll({
+      where: { provider_id: req.userId, status: 'pending' },
+      ...options,
+    });
+
+    const completed = await Service.findAll({
+      where: { provider_id: req.userId, status: 'completed' },
+      ...options,
     });
 
     return res.json({ requested, pending, completed });
   }
 
   async show(req, res) {
-    const include_options = [
-      {
-        model: User,
-        as: 'provider',
-        attributes: [
-          'name',
-          'avatar_id',
-          'email',
-          'phone_number',
-          'street',
-          'street_number',
-          'complement',
-          'state',
-          'city',
-          'neighborhood',
-          'zip_code',
-        ],
-        include: [
-          {
-            model: File,
-            as: 'avatar',
-            attributes: ['name', 'path', 'url'],
-          },
-        ],
-      },
-      {
-        model: User,
-        as: 'client',
-        attributes: [
-          'name',
-          'avatar_id',
-          'email',
-          'phone_number',
-          'street',
-          'street_number',
-          'complement',
-          'state',
-          'city',
-          'neighborhood',
-          'zip_code',
-        ],
-        include: [
-          {
-            model: File,
-            as: 'avatar',
-            attributes: ['name', 'path', 'url'],
-          },
-        ],
-      },
-      {
-        model: Album,
-        as: 'album',
-        include: [
-          {
-            association: 'files',
-            as: 'photos',
-            attributes: ['name', 'path', 'url'],
-          },
-        ],
-      },
-    ];
+    const options = {
+      attributes: [
+        'id',
+        'status',
+        'event_type',
+        'description',
+        'street',
+        'street_number',
+        'state',
+        'city',
+        'neighborhood',
+        'canceled_at',
+        'start_event',
+        'end_event',
+      ],
+      include: [
+        {
+          model: User,
+          as: 'provider',
+          attributes: [
+            'name',
+            'avatar_id',
+            'email',
+            'phone_number',
+            'street',
+            'street_number',
+            'complement',
+            'state',
+            'city',
+            'neighborhood',
+            'zip_code',
+          ],
+          include: [
+            {
+              model: File,
+              as: 'avatar',
+              attributes: ['name', 'path', 'url'],
+            },
+          ],
+        },
+        {
+          model: User,
+          as: 'client',
+          attributes: [
+            'name',
+            'avatar_id',
+            'email',
+            'phone_number',
+            'street',
+            'street_number',
+            'complement',
+            'state',
+            'city',
+            'neighborhood',
+            'zip_code',
+          ],
+          include: [
+            {
+              model: File,
+              as: 'avatar',
+              attributes: ['name', 'path', 'url'],
+            },
+          ],
+        },
+        {
+          model: Album,
+          as: 'album',
+          include: [
+            {
+              association: 'files',
+              as: 'photos',
+              attributes: ['name', 'path', 'url'],
+            },
+          ],
+        },
+      ],
+    };
 
     const { id } = req.params;
 
     const service = await Service.findOne({
       where: { id },
-      include: include_options,
+      ...options,
     });
 
     if (!service) {
       return res.status(401).json({ error: 'Service not found' });
-    }
-
-    if (service.user_id !== req.userId || service.provider_id !== req.userId) {
-      return res
-        .status(401)
-        .json({ error: 'You are not allowed to see this service' });
     }
 
     return res.json(service);

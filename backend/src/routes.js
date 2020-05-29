@@ -39,7 +39,7 @@ routes.get('/services/user', ServiceController.indexUser);
 routes.get('/services/provider', ServiceController.indexProvider);
 routes.get('/services/:id', ServiceController.show);
 routes.post('/services', ServiceController.store);
-routes.put('/services', ServiceController.update);
+routes.put('/services/:id', ServiceController.update);
 routes.post('/services/:id/cancel', ServiceController.cancel);
 routes.post('/services/:id/approve', ServiceController.approve);
 routes.post('/services/:id/conclude', ServiceController.conclude);
