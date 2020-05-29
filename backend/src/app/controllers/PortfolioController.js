@@ -70,18 +70,25 @@ class PorfolioController {
   async index(req, res) {
     const portfolios = await Portfolio.findAll({
       order: [['id', 'ASC']],
+      attributes: ['id', 'event_type', 'value_hour', 'description'],
       include: [
         {
           model: Album,
           as: 'album',
           attributes: ['name'],
+          include: [
+            {
+              association: 'files',
+              as: 'photos',
+              attributes: ['name', 'path', 'url'],
+            },
+          ],
         },
         {
           model: User,
           as: 'user',
           attributes: [
             'name',
-            'avatar_id',
             'email',
             'phone_number',
             'street',
@@ -111,6 +118,7 @@ class PorfolioController {
 
     const portfolio = await Portfolio.findOne({
       where: { id },
+      attributes: ['id', 'event_type', 'value_hour', 'description'],
       include: [
         {
           model: Album,
@@ -129,7 +137,6 @@ class PorfolioController {
           as: 'user',
           attributes: [
             'name',
-            'avatar_id',
             'email',
             'phone_number',
             'street',
