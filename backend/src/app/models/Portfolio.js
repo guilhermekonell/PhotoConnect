@@ -5,7 +5,6 @@ class Portfolio extends Model {
     super.init(
       {
         event_type: Sequelize.STRING,
-        value_hour: Sequelize.DOUBLE,
         description: Sequelize.STRING,
       },
       {

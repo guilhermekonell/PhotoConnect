@@ -11,10 +11,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      value_hour: {
-        type: Sequelize.DOUBLE,
-        allowNull: true,
-      },
       description: {
         type: Sequelize.STRING,
         allowNull: true,

@@ -8,7 +8,6 @@ class PorfolioController {
   async store(req, res) {
     const schema = Yup.object().shape({
       event_type: Yup.string().required(),
-      value_hour: Yup.number(),
       description: Yup.string(),
     });
 
@@ -24,24 +23,17 @@ class PorfolioController {
 
     await user.update({ provider: true });
 
-    const {
-      id,
-      event_type,
-      value_hour,
-      description,
-      user_id,
-    } = await Portfolio.create({
+    const { id, event_type, description, user_id } = await Portfolio.create({
       ...req.body,
       user_id: req.userId,
     });
 
-    return res.json({ id, event_type, value_hour, description, user_id });
+    return res.json({ id, event_type, description, user_id });
   }
 
   async update(req, res) {
     const schema = Yup.object().shape({
       event_type: Yup.string(),
-      value_hour: Yup.number(),
       description: Yup.string(),
     });
 
@@ -57,14 +49,12 @@ class PorfolioController {
       return res.status(401).json({ error: 'Portfolio not found' });
     }
 
-    const {
-      event_type,
-      value_hour,
-      description,
-      user_id,
-    } = await portfolio.update({ ...req.body, user_id: req.userId });
+    const { event_type, description, user_id } = await portfolio.update({
+      ...req.body,
+      user_id: req.userId,
+    });
 
-    return res.json({ id, event_type, value_hour, description, user_id });
+    return res.json({ id, event_type, description, user_id });
   }
 
   async index(req, res) {
