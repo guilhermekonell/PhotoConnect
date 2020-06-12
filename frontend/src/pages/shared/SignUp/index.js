@@ -1,12 +1,14 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Form, Input } from '@rocketseat/unform';
+import { Form } from '@unform/web';
 import * as Yup from 'yup';
 
-import logo from '../../assets/logo.png';
+import Input from '../../../components/Input';
 
-import { signUpRequest } from '../../store/modules/auth/actions';
+import logo from '../../../assets/logo.png';
+
+import { signUpRequest } from '../../../store/modules/auth/actions';
 
 const schema = Yup.object().shape({
   name: Yup.string().required('O nome é obrigatório'),

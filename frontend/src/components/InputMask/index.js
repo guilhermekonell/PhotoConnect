@@ -1,11 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 import ReactInputMask from 'react-input-mask';
+import PropTypes from 'prop-types';
 
-import { useField } from '@rocketseat/unform';
+import { useField } from '@unform/core';
 
-function InputMask({ ...rest }) {
+function InputMask({ name, ...rest }) {
   const inputRef = useRef(null);
-  const { fieldName, registerField, defaultValue } = useField('phone_number');
+  const { fieldName, registerField, defaultValue } = useField(name);
 
   useEffect(() => {
     registerField({
@@ -27,3 +28,7 @@ function InputMask({ ...rest }) {
 }
 
 export default InputMask;
+
+InputMask.propTypes = {
+  name: PropTypes.string.isRequired,
+};

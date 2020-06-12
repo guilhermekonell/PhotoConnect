@@ -15,6 +15,7 @@ function Header() {
         <nav>
           <img src={logo} alt="PhotoConnect" />
           <Link to="/dashboard">DASHBOARD</Link>
+          {profile.provider ? <Link to="/portfolio">PORTFOLIO</Link> : <></>}
         </nav>
         <aside>
           <Profile>
