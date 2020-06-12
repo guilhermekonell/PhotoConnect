@@ -60,7 +60,7 @@ class PorfolioController {
   async index(req, res) {
     const portfolios = await Portfolio.findAll({
       order: [['id', 'ASC']],
-      attributes: ['id', 'event_type', 'value_hour', 'description'],
+      attributes: ['id', 'event_type', 'description'],
       include: [
         {
           model: Album,
@@ -108,7 +108,7 @@ class PorfolioController {
 
     const portfolio = await Portfolio.findOne({
       where: { id },
-      attributes: ['id', 'event_type', 'value_hour', 'description'],
+      attributes: ['id', 'event_type', 'description'],
       include: [
         {
           model: Album,
