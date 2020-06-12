@@ -17,3 +17,9 @@ export function updateProfileFailure() {
     type: '@user/UPDATE_PROFILE_FAILURE',
   };
 }
+
+export function updateProfileProvider() {
+  return {
+    type: '@user/UPDATE_PROFILE_PROVIDER',
+  };
+}

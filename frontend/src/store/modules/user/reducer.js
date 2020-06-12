@@ -19,6 +19,10 @@ export default function user(state = INITIAL_STATE, action) {
         draft.profile = null;
         break;
       }
+      case '@user/UPDATE_PROFILE_PROVIDER': {
+        draft.profile.provider = true;
+        break;
+      }
       default:
     }
   });

@@ -1,12 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Form, Input } from '@rocketseat/unform';
+import { Form } from '@unform/web';
 
-import { signOut } from '../../store/modules/auth/actions';
-import { updateProfileRequest } from '../../store/modules/user/actions';
+import { signOut } from '../../../store/modules/auth/actions';
+import { updateProfileRequest } from '../../../store/modules/user/actions';
 
 import AvatarInput from './AvatarInput';
-import InputMask from './InputMask';
+import InputMask from '../../../components/InputMask';
+import Input from '../../../components/Input';
 
 import { Container } from './styles';
 

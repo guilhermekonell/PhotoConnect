@@ -2,6 +2,7 @@ import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
 import api from '../../../services/api';
+import history from '../../../services/history';
 
 import { updateProfileSuccess, updateProfileFailure } from './actions';
 
@@ -48,4 +49,12 @@ export function* updateProfile({ payload }) {
   }
 }
 
-export default all([takeLatest('@user/UPDATE_PROFILE_REQUEST', updateProfile)]);
+export function updateProvider() {
+  toast.success('O Portfolio foi cadastrado com sucesso');
+  history.push('/dashboard');
+}
+
+export default all([
+  takeLatest('@user/UPDATE_PROFILE_REQUEST', updateProfile),
+  takeLatest('@user/UPDATE_PROFILE_PROVIDER', updateProvider),
+]);
