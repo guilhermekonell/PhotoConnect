@@ -9,6 +9,7 @@ import SignUp from '../pages/shared/SignUp';
 import Profile from '../pages/shared/Profile';
 
 import Dashboard from '../pages/client/Dashboard';
+import Service from '../pages/client/Service';
 
 import Portfolio from '../pages/provider/Portfolio';
 import newPortfolio from '../pages/provider/Portfolio/NewPortfolio';
@@ -23,6 +24,7 @@ export default function Routes() {
 
       <Route path="/dashboard" component={Dashboard} isPrivate />
       <Route path="/profile" component={Profile} isPrivate />
+      <Route path="/service" component={Service} isPrivate />
 
       <Route
         path="/portfolio"
