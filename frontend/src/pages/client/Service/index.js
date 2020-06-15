@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-// import { Container } from './styles';
+import { Container } from './styles';
+
+import api from '../../../services/api';
 
 function Service() {
-  return <h1>Services Client</h1>;
+  const [portfolios, setPortfolios] = useState([]);
+
+  async function loadPortfolios() {
+    const response = await api.get('/portfolios');
+
+    setPortfolios(response.data);
+  }
+
+  useEffect(() => {
+    loadPortfolios();
+  }, []);
+
+  return <Container />;
 }
 
 export default Service;
