@@ -13,6 +13,14 @@ class FileController {
 
     return res.json(file);
   }
+
+  async delete(req, res) {
+    const file = await File.findByPk(req.params.id);
+
+    await file.destroy();
+
+    return res.json();
+  }
 }
 
 export default new FileController();

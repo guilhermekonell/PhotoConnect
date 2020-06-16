@@ -24,6 +24,7 @@ routes.put('/users', UserController.update);
 routes.delete('/users', UserController.delete);
 
 routes.post('/files', upload.single('file'), FileController.store);
+routes.delete('/files/:id', FileController.delete);
 
 routes.get('/portfolios', PortfolioController.index);
 routes.get('/portfolios/:id', PortfolioController.show);
