@@ -43,7 +43,7 @@ class PorfolioController {
 
     const { id } = req.params;
 
-    const portfolio = Portfolio.findByPk(id);
+    const portfolio = await Portfolio.findByPk(id);
 
     if (!portfolio) {
       return res.status(401).json({ error: 'Portfolio not found' });
@@ -65,12 +65,12 @@ class PorfolioController {
         {
           model: Album,
           as: 'album',
-          attributes: ['name'],
+          attributes: ['id', 'name'],
           include: [
             {
               association: 'files',
               as: 'photos',
-              attributes: ['name', 'path', 'url'],
+              attributes: ['id', 'name', 'path', 'url'],
             },
           ],
         },
@@ -107,18 +107,18 @@ class PorfolioController {
     const { id } = req.params;
 
     const portfolio = await Portfolio.findOne({
-      where: { id },
+      where: { user_id: id },
       attributes: ['id', 'event_type', 'description'],
       include: [
         {
           model: Album,
           as: 'album',
-          attributes: ['name'],
+          attributes: ['id', 'name'],
           include: [
             {
               association: 'files',
               as: 'photos',
-              attributes: ['name', 'path', 'url'],
+              attributes: ['id', 'name', 'path', 'url'],
             },
           ],
         },
