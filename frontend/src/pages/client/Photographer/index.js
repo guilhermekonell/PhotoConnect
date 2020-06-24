@@ -21,7 +21,7 @@ function Photographer() {
            <row>
                <column>
                     <Portfolio>
-                        <Link>Solicitar serviço</Link> 
+                        <Link to="/requestservice">Solicitar serviço</Link> 
                     </Portfolio>
                 </column>    
             </row>

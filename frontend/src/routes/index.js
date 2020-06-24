@@ -12,6 +12,7 @@ import Dashboard from '../pages/client/Dashboard';
 import Service from '../pages/client/Service';
 import ServiceStatus from '../pages/client/ServiceStatus';
 import Photographer from '../pages/client/Photographer';
+import RequestService from '../pages/client/Photographer/RequestService';
 
 import Portfolio from '../pages/provider/Portfolio';
 import newPortfolio from '../pages/provider/Portfolio/NewPortfolio';
@@ -29,6 +30,7 @@ export default function Routes() {
       <Route path="/service" component={Service} isPrivate />
       <Route path="/servicestatus" component={ServiceStatus} isPrivate />
       <Route path="/photographer" component={Photographer} isPrivate />
+      <Route path="/requestservice" component={RequestService} isPrivate />
 
       <Route
         path="/portfolio"
