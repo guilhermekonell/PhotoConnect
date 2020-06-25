@@ -55,6 +55,8 @@ export const Container = styled.div`
       &:hover {
         background: ${darken(0.05, '#1d3557')};
       }
+
+      
     }
 
     select {
@@ -96,6 +98,121 @@ export const Container = styled.div`
     }
   }
 
+  timepicker {
+    @mixin cf {
+      &:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    
+    .container {
+      width: 25%;
+      margin: 0 auto;
+      padding-top: 100px;
+    }
+    
+    .timepicker {
+      width: 100%;
+      color: #808080;
+      user-select: none;
+      
+      &__result {
+        @include cf;
+        background: #E8E8E8;
+        border: solid 1px #D6D6D6;
+        padding: 1em;
+        font-weight: bold;
+        cursor:pointer;
+        position: relative;
+        
+        &-time, &-icon {
+          float: left;
+        }
+        
+        &-time {
+          width: 90%;
+          border-right: solid 2px #D6D6D6;
+        }
+        
+        &-icon {
+          width: 10%;
+          padding-left: 0.7em;
+        }
+      }
+      
+      &__times {
+        width: 100%;
+        border: solid 1px #D6D6D6;
+        border-top: none;
+        display: none;
+        max-height: 150px;
+        overflow: hidden;
+        overflow-y: auto;
+        
+          &::-webkit-scrollbar {
+              width: 1em;
+          }
+    
+          &::-webkit-scrollbar-track {
+              -webkit-box-shadow: inset 0 0 6px     rgba(0,0,0,0.3);
+          }
+    
+          &::-webkit-scrollbar-thumb {
+            background-color: darkgrey;
+            outline: 1px solid slategrey;
+          }
+      }
+      
+      
+      &__time {
+        @include cf;
+        border-bottom: solid 1px #D6D6D6;
+        
+          &:last-child {
+            border: none;
+          }
+        
+        &-hour, &-minutes {
+          float: left;
+          cursor: pointer;
+        }
+        
+        &-hour {
+          width: 30%;
+          padding: 20px;
+          background: #D6D6D6;
+          text-align: center;
+          font-weight: bold;
+          font-size: 2em;
+        }
+        
+        &-minutes {
+          width: 70%;
+          text-align: center;
+        }
+        
+        &-minute {
+          font-size: 1.2em;
+          padding: 1em;
+          line-height: 4em;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
  
   > button {
     width: 100%;
@@ -114,3 +231,4 @@ export const Container = styled.div`
     }
   }
 `;
+

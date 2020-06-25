@@ -6,6 +6,7 @@ import InputMask from '../../../../components/InputMask';
 import Input from '../../../../components/Input';
 
 
+
 function RequestService() {
     return (
     <Container>
@@ -42,6 +43,29 @@ function RequestService() {
         />
         <hr />
 
+        <span>Data do evento:</span>
+        <input name="event_date" type="date"/>
+
+        <hr />
+
+        <span>Horário do evento:</span>
+        <InputMask
+          name="time_begin"
+          mask="99:99"
+          placeholder="Hora de início"
+        />
+        <InputMask
+          name="time_end"
+          mask="99:99"
+          placeholder="Hora de término"
+        />
+
+        
+        
+        
+
+        <hr />
+
         <span>Descrição:</span>
         <textarea placeholder="Digite a descrição do evento"></textarea>
         
@@ -50,6 +74,8 @@ function RequestService() {
       </Form>
 
     </Container>
+    
+
     
     );
 }
