@@ -12,13 +12,54 @@ function Dashboard() {
   return (
     <Container>
       {profile.provider ? (
-        <></>
+        <div>
+        <Featured>
+          <row>
+            <column>
+              <Link to="/profile">
+                <AccessCard>
+                    <header><h2>Perfil</h2></header>
+                    <div><span>😎</span></div>
+                    <span>
+                    Configurar dados cadastrado do seu perfil. 
+                    </span>
+                </AccessCard>
+              </Link>  
+            </column>
+            <column>
+              <Link to="/portfolio">
+                <AccessCard>
+                    <header><h2>Portfolios</h2></header>
+                    <div><span>👔</span></div>
+                    <span>
+                    Acessar acervo de portfolios cadastrados
+                    </span>
+                </AccessCard>
+              </Link>
+            </column>
+            <column>
+              <Link to="/services">
+                <AccessCard>
+                    <header><h2>Serviços</h2></header>
+                    <div><span>🛒</span></div>
+                    <span>
+                    Verifique o status ou histórico de serviços fotográficos solicitados.
+                    </span>
+                  </AccessCard>
+                </Link>
+            </column>
+          </row>
+              
+            
+        </Featured>
+  
+        
+        </div>
       ) : (
-        <Portfolio>
+        <div>
+      <Portfolio>
           <Link to="/portfolio">Sou um Fotógrafo</Link>
         </Portfolio>
-      )}
-
       <Featured>
         <row>
           <column>
@@ -60,7 +101,11 @@ function Dashboard() {
       </Featured>
 
       <h3>Último serviço entregue</h3>
+      </div>
+        
 
+      )}
+      
       
 
     

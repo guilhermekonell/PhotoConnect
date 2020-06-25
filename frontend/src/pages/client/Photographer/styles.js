@@ -36,6 +36,19 @@ body {
     font-family: Arial;
 }
 
+hr {
+  border: 0;
+  height: 1px;
+  background: #fff;
+  margin: 10px 0 20px;
+}
+
+h4 {
+  display: flex;
+  align-text: center;
+  color: #fff;
+}
+
 .header {
     text-align: center;
     padding: 32px;

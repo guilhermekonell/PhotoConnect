@@ -13,6 +13,7 @@ import Service from '../pages/client/Service';
 import ServiceStatus from '../pages/client/ServiceStatus';
 import Photographer from '../pages/client/Photographer';
 import RequestService from '../pages/client/Photographer/RequestService';
+import Search from '../pages/client/Search';
 
 import Portfolio from '../pages/provider/Portfolio';
 import newPortfolio from '../pages/provider/Portfolio/NewPortfolio';
@@ -31,6 +32,7 @@ export default function Routes() {
       <Route path="/servicestatus" component={ServiceStatus} isPrivate />
       <Route path="/photographer" component={Photographer} isPrivate />
       <Route path="/requestservice" component={RequestService} isPrivate />
+      <Route path="/search" component={Search} isPrivate />
 
       <Route
         path="/portfolio"
