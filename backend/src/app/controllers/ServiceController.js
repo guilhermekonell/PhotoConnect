@@ -374,7 +374,7 @@ class ServiceController {
       return res.status(401).json({ error: 'Service not found' });
     }
 
-    if (service.user_id !== req.userId) {
+    if (service.user_id !== req.userId && service.provider_id !== req.userId) {
       return res
         .status(401)
         .json({ error: 'Service cancellation not allowed' });
