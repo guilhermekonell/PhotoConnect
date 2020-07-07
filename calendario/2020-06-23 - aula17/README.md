@@ -4,4 +4,8 @@
 </div>
 
 ## 💻🕑 Desenvolvido na data
-<p></p>
+
+<p>Implementação da parte de serviços da aplicação</p>
+<p>Implementação de protótipos das páginas restantes</p>
+
+
