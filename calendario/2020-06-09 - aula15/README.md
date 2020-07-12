@@ -4,4 +4,7 @@
 </div>
 
 ## 💻🕑 Desenvolvido na data
-<p></p>
+
+<p>Implementação dos portfoilios de fotógrafos</p>
+<p>Atualização do sequelize</p>
+<p>Ajuste de atributos e campos do portfolio</p>

@@ -4,4 +4,7 @@
 </div>
 
 ## 💻🕑 Desenvolvido na data
-<p></p>
+
+<p>Ajuste CRUD de portfolio</p>
+<p>Conclusão do desenvolvimento da parte de portfolio da regra de negócio</p>
+
