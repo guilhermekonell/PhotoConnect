@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   display: center;
@@ -8,82 +8,53 @@ export const Container = styled.div`
 
   max-width: 900px;
   margin: 0 auto;
-`;
+  padding: 10px;
 
-export const Portfolio = styled.div`
-  width: 900px;
-  height: 150px;
-  margin-top: 30px;
-
-  a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background: linear-gradient(-90deg, #1d3557, #457b9d);
-
-    width: 900px;
-    height: 150px;
-    padding: 15px;
-    border: 0;
-    border-radius: 12px;
-    color: #fff;
-    font-weight: bold;
-    font-size: 45px;
+  > h1 {
+    margin-top: 30px;
+    color: #1d3557;
   }
 `;
+
 export const Featured = styled.div`
-  position: relative;
-  padding: 06em 0em;
-  background: #fff;
-  text-align: center;
-  margin-top: 10px;
-  border-radius: 12px;
-  background: linear-gradient(-90deg, #1d3557, #457b9d);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  
-
-  img {
-    float: left;
-		margin: 0.85em 2em 0em 0em;
-  }
-
-  column {
-    float: left;
-    width: 300px;
-    padding: 0 10px;
-  }
-
-  row {
-    margin: 0 -5px;
-    content: "";
-    display: table;
-    clear: both;
-    
-  
-  }
+  margin-top: 5px;
 `;
 
-export const AccessCard = styled.div`
-  position: relative;
-  
-  button {
-    margin-top: 2em;
+export const AccessCard = styled(Link)`
+  width: 100%;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background: rgba(0, 0, 0, 0.2);
+
+  border-radius: 4px;
+  padding: 20px;
+
+  & + a {
+    margin-left: 10px;
   }
-  
+
   h2 {
     color: #fff;
     font-weight: bold;
-    font-size: 25px;
-    display: block;
+    font-size: 30px;
   }
 
   span {
     color: #fff;
-  }
-  
+    font-size: 14px;
+    margin-top: 5px;
   }
 `;
 
 /** CODE */
-

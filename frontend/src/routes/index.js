@@ -38,23 +38,31 @@ export default function Routes() {
       <Route path="/requestservice" component={RequestService} isPrivate />
       <Route path="/search" component={Search} isPrivate />
 
-      <Route
-        path="/portfolio"
-        component={provider ? Portfolio : newPortfolio}
-        isPrivate
-      />
-      <Route
-        path="/provider/services"
-        exact
-        component={ProviderServices}
-        isPrivate
-      />
-      <Route
-        path="/provider/services/conclude"
-        component={ConcludeService}
-        isPrivate
-      />
-      <Route path="/provider/services/view" component={ViewService} isPrivate />
+      {provider ? (
+        <>
+          <Route path="/portfolio" component={Portfolio} isPrivate />
+          <Route
+            path="/provider/services"
+            exact
+            component={ProviderServices}
+            isPrivate
+          />
+          <Route
+            path="/provider/services/conclude"
+            component={ConcludeService}
+            isPrivate
+          />
+          <Route
+            path="/provider/services/view"
+            component={ViewService}
+            isPrivate
+          />
+        </>
+      ) : (
+        <>
+          <Route path="/portfolio" component={newPortfolio} isPrivate />
+        </>
+      )}
     </Switch>
   );
 }

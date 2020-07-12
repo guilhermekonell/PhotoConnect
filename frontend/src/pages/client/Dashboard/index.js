@@ -1,10 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
-import { Container, Portfolio, Featured, AccessCard } from './styles';
-
-
+import { Container, Featured, AccessCard } from './styles';
 
 function Dashboard() {
   const profile = useSelector((state) => state.user.profile);
@@ -12,104 +9,62 @@ function Dashboard() {
   return (
     <Container>
       {profile.provider ? (
-        <div>
-        <Featured>
-          <row>
-            <column>
-              <Link to="/profile">
-                <AccessCard>
-                    <header><h2>Perfil</h2></header>
-                    <div><span>😎</span></div>
-                    <span>
-                    Configurar dados cadastrado do seu perfil. 
-                    </span>
-                </AccessCard>
-              </Link>  
-            </column>
-            <column>
-              <Link to="/portfolio">
-                <AccessCard>
-                    <header><h2>Portfolios</h2></header>
-                    <div><span>👔</span></div>
-                    <span>
-                    Acessar acervo de portfolios cadastrados
-                    </span>
-                </AccessCard>
-              </Link>
-            </column>
-            <column>
-              <Link to="/services">
-                <AccessCard>
-                    <header><h2>Serviços</h2></header>
-                    <div><span>🛒</span></div>
-                    <span>
-                    Verifique o status ou histórico de serviços fotográficos solicitados.
-                    </span>
-                  </AccessCard>
-                </Link>
-            </column>
-          </row>
-              
-            
-        </Featured>
-  
-        
-        </div>
+        <>
+          <h1>Dashboard fotógrafo</h1>
+          <Featured>
+            <AccessCard to="/portfolio">
+              <h2>Portfolio</h2>
+              <span>
+                Configurar dados cadastrado do seu portfolio. As informações de
+                seu portofolio são importantes para que os usuários lhe conheçam
+                e identifiquem seu trabalho fotógráfico.
+              </span>
+            </AccessCard>
+            <AccessCard to="/provider/services">
+              <h2>Serviços</h2>
+              <span>
+                Verifique o status ou histórico de seus serviços fotográficos.
+              </span>
+            </AccessCard>
+          </Featured>
+        </>
       ) : (
-        <div>
-      <Portfolio>
-          <Link to="/portfolio">Sou um Fotógrafo</Link>
-        </Portfolio>
-      <Featured>
-        <row>
-          <column>
-            <Link to="/profile">
-              <AccessCard>
-                  <header><h2>Perfil</h2></header>
-                  <div><span>😎</span></div>
-                  <span>
-                  Configurar dados cadastrado do seu perfil. As informações de seu perfil são importantes para que o contato com fotógrafo ocorra com sucesso.
-                  </span>
-              </AccessCard>
-            </Link>  
-          </column>
-          <column>
-            <Link to="/services">
-              <AccessCard>
-                  <header><h2>Fotógrafos</h2></header>
-                  <div><span>📸</span></div>
-                  <span>
-                  Pesquisar e acessar lista de fotógrafos disponíveis para contratos de serviço. Encontre o fotógrafo com o portfólio que mais lhe agrada.
-                  </span>
-              </AccessCard>
-            </Link>
-          </column>
-          <column>
-            <Link to="/services">
-              <AccessCard>
-                  <header><h2>Serviços</h2></header>
-                  <div><span>🛒</span></div>
-                  <span>
-                  Verifique o status ou histórico de serviços fotográficos solicitados.
-                  </span>
-                </AccessCard>
-              </Link>
-          </column>
-        </row>
-            
-          
-      </Featured>
-
-      <h3>Último serviço entregue</h3>
-      </div>
-        
-
+        <>
+          <Featured>
+            <AccessCard to="/portfolio">
+              <h2>Sou um Fotógrafo</h2>
+              <span>Cadastrar portfolio para prestação de serviços.</span>
+            </AccessCard>
+          </Featured>
+        </>
       )}
-      
-      
 
-    
-      
+      <h1>Dashboard Usuário</h1>
+      <Featured>
+        <AccessCard to="/profile">
+          <h2>Perfil</h2>
+          <span>
+            Configurar dados cadastrado do seu perfil. As informações de seu
+            perfil são importantes para que o contato com fotógrafo ocorra com
+            sucesso.
+          </span>
+        </AccessCard>
+        <AccessCard to="/services">
+          <h2>Fotógrafos</h2>
+          <span>
+            Pesquisar e acessar lista de fotógrafos disponíveis para contratos
+            de serviço. Encontre o fotógrafo com o portfólio que mais lhe
+            agrada.
+          </span>
+        </AccessCard>
+        <AccessCard to="/services">
+          <h2>Serviços</h2>
+          <span>
+            Verifique o status ou histórico de serviços fotográficos
+            solicitados.
+          </span>
+        </AccessCard>
+      </Featured>
     </Container>
   );
 }
