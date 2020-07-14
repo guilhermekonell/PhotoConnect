@@ -39,6 +39,9 @@
 
 2. Executar o comando `yarn start` para inicializar a aplicação front-end.
 
+## 🎬Vídeo de apresentação
+https://youtu.be/Uew3XJPx25w
+
 ## 📜 Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
